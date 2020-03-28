@@ -1,6 +1,7 @@
 const express = require('express');
 const routes = require('./routes');
 const cors = require('cors');
+const {errors} = require('celebrate');
 //importa e usa express
 const app = express();
 
@@ -8,6 +9,7 @@ app.use(cors({}));
 //explica pro express que é pra converter o json pra javascript object
 app.use(express.json());
 app.use(routes);
+app.use(errors());
 //npm start no console pra executar o backend com nodemon
 //Rota o endereco no browser/ Recurso esse parametro depois da barra
 
@@ -36,5 +38,4 @@ app.use(routes);
    */
 
 
-app.listen(3333);
-
+module.exports = app;
